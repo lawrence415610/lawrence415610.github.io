@@ -1,0 +1,368 @@
+// Overrides
+$grid-gutter-width: 40px !default;
+$border-radius-base: 4px !default;
+$padding-base-vertical: 14px !default;
+
+$brand-primary: #2c98f0 !default;
+$brand-footer: #2c2c2c !default;
+
+$brand-color-1: #2c98f0 !default;
+$brand-color-2: #ec5453 !default;
+$brand-color-3: #f9bf3f !default;
+
+$brand-white: #fff;
+$brand-black: #000;
+$brand-darker: #444;
+$brand-gray: #f2f3f7;
+$brand-lighter: #e9e9e9;
+$brand-body-color: #e8e8e8;
+$brand-selection-color: #f9f6f0;
+$brand-overlay-color: #3b3d40;
+$brand-bg-color: $brand-white;
+
+$font-first: "Montserrat", "Arial", sans-serif;
+$font-second: "Vidaloka", "Times", serif;
+
+$input-border-focus: $brand-primary !default;
+$form-group-margin-bottom: 30px !default;
+
+@mixin transition($transition) {
+  -moz-transition: all $transition ease;
+  -o-transition: all $transition ease;
+  -webkit-transition: all $transition ease;
+  -ms-transition: all $transition ease;
+  transition: all $transition ease;
+}
+
+@mixin translateX($translatex) {
+  -moz-transform: translateX($translatex);
+  -o-transform: translateX($translatex);
+  -webkit-transform: translateX($translatex);
+  -ms-transform: translateX($translatex);
+  transform: translateX($translatex);
+}
+
+@mixin border-radius($radius) {
+  -moz-border-radius: $radius;
+  -o-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: $font-first;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: $brand-black;
+  font-family: $font-second;
+  font-weight: 400;
+}
+
+::-webkit-selection {
+  color: $brand-white;
+  background: $brand-primary;
+}
+
+::-moz-selection {
+  color: $brand-white;
+  background: $brand-primary;
+}
+
+::selection {
+  color: $brand-white;
+  background: $brand-primary;
+}
+
+h2 {
+  margin-bottom: 3em;
+  letter-spacing: 0.5em;
+  font-weight: 700;
+  font-size: 1em;
+  color: $brand-darker;
+}
+
+#page {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+#sidebar {
+  padding-top: 6em;
+  position: fixed;
+  float: left;
+  width: 300px;
+  background: $brand-white;
+  &:hover {
+    @include transition(0.5s);
+    background: $brand-gray;
+  }
+  .bio-img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    margin-bottom: 2em;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    @include border-radius(50%);
+  }
+}
+
+#navigation {
+  padding-top: 3em;
+  ul {
+    width: 100%;
+    list-style: none;
+    li {
+      line-height: 2em;
+      a {
+        color: rgba(0, 0, 0, 0.5);
+        cursor: pointer;
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          height: 1.5px;
+          left: 0;
+          right: 0;
+          bottom: -1px;
+          background: $brand-primary;
+          visibility: hidden;
+          @include transform(scaleX(0));
+          @include transition(0.3s);
+        }
+        &:hover {
+          text-decoration: none;
+          color: rgba(0, 0, 0, 1);
+          &:after {
+            visibility: visible;
+            @include transform(scaleX(1));
+          }
+        }
+      }
+      &.active {
+        a {
+          color: $brand-primary;
+        }
+      }
+    }
+  }
+}
+
+#contact-details {
+  padding-top: 6em;
+  ul {
+    width: 100%;
+    list-style: none;
+    margin: 0 auto;
+    padding: 40px;
+    font-size: 0.8vmax;
+  }
+}
+
+.container-wrap {
+  max-width: 1170px;
+  margin: 0 auto;
+}
+
+#main {
+  width: calc(100% - 300px);
+  float: right;
+}
+
+#hero {
+  width: 100%;
+  float: left;
+  clear: both;
+}
+
+.education,
+.skill,
+.portfolio,
+.contact {
+  width: 100%;
+  padding-top: 6em;
+  padding-bottom: 12em;
+  clear: both;
+  display: block;
+}
+
+// education timeline
+#education {
+  .timeline-icon {
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: $brand-primary;
+    @include border-radius(50%);
+    text-align: center;
+    box-shadow: 0 0 0 5px $brand-gray;
+    line-height: 40px;
+    float: left;
+    i {
+      color: $brand-white;
+    }
+    &.color-1 {
+      background: $brand-color-1;
+    }
+    &.color-2 {
+      background: $brand-color-2;
+    }
+    &.color-3 {
+      background: $brand-color-3;
+    }
+    &.color-none {
+      background: $brand-white;
+      width: 20px;
+      height: 20px;
+      margin-left: 10px;
+    }
+  }
+  .timeline-label {
+    position: relative;
+    background: $brand-gray;
+    padding: 1.5em;
+    margin-left: 60px;
+    margin-bottom: 20px;
+    background-clip: padding-box;
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 9px 9px 9px 0;
+      border-color: transparent $brand-gray transparent transparent;
+      left: 0;
+      top: 10px;
+      margin-left: -9px;
+    }
+    h2 {
+      font-size: 1.2em;
+      font-weight: 500px;
+      font-family: $font-first;
+      letter-spacing: initial;
+      a {
+        margin-left: 30px;
+      }
+      span {
+        font-size: 0.8em;
+        margin-left: 30px;
+        color: $brand-darker;
+      }
+    }
+    ul {
+      margin-left: 40px;
+    }
+  }
+}
+
+#skill{
+    h3{
+        font-size: 1.2em;
+        font-weight: 500px;
+        font-family: $font-first;
+        letter-spacing: initial;
+        margin-bottom: 0.5em;
+        margin-top:1em;   
+    }
+}
+
+#portfolio{
+    .portfolio-menu{
+        span{
+            font-family: $font-second;
+            padding: 1em;
+            font-size: 1em;
+        }
+    }
+    .project{
+        background-position: center center;
+        background-repeat: no-repeat;    
+        background-size: cover;
+        height:300px;
+        width:100%;
+        margin-bottom: 30px;
+        position: relative;
+        .desc{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: $brand-primary;
+            opacity:0;
+            @include transition(0.3s);
+            .con{
+                padding:1.5em;
+                position: relative;
+                height:300px;
+                h3{
+                    font-family: $font-first;
+                    font-size: 1.5em;
+                    text-transform: uppercase;
+                    transition: transform 0.3s, opacity 0.3s;
+                    transform: translate3d(0, -15px, 0);
+                }
+                .icon{
+                    position: absolute;
+                    bottom:20px;
+                    left:20px;
+                }
+            }
+            &:hover{
+                opacity:1;
+                h3{
+                    transform: translate3d(0, 0, 0);
+                }
+            }
+        }
+    }
+}
+
+#contact{
+    .contact-detail{
+        padding:2em;
+        display:flex;
+        align-items: center;
+        .detail-icon{
+            width:4em;
+            height:4em;
+            background-color: $brand-primary;
+            color: $brand-white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .detail-content{
+            h3{
+                font-family: $font-first;
+                font-size: 1.2em;
+                align-self: center;;
+                margin-left: 1em;
+            }
+        }
+    }
+    form{
+        padding:20px;
+    }
+}
