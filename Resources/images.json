@@ -1,0 +1,10 @@
+{
+  "images" : [
+    {"name" : "p1" , "src" : "img/portfolio/1.jpg"},
+    {"name" : "p2" , "src" : "img/portfolio/2.jpg"},
+    {"name" : "p3" , "src" : "img/portfolio/3.jpg"},
+    {"name" : "p4" , "src" : "img/portfolio/4.jpg"},
+    {"name" : "p5" , "src" : "img/portfolio/5.jpg"},
+    {"name" : "p6" , "src" : "img/portfolio/6.jpg"}
+  ]
+}
