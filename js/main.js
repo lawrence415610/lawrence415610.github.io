@@ -1,5 +1,8 @@
-window.addEventListener('load', function () {
+$(window).load(function () {
+    $("#preloader").delay(300).fadeOut("slow");
+});
 
+$(document).ready(function () {
     const nav = document.querySelectorAll('#nav li');
     const section = document.querySelectorAll('section');
 
@@ -7,13 +10,10 @@ window.addEventListener('load', function () {
     const navPortfolioLabel = document.querySelectorAll('#works li>a');
     const portfolioWorks = document.querySelectorAll('#works .work_wrapper');
 
-    // TODO: use the preloader to load me img
-
-
     // general navigation, click the nav bar to show the three sections
     for (let i = 0, len = nav.length; i < len; i++) {
         nav[i].addEventListener('click', () => {
-            //clear all before set
+            //clear
             nav.forEach((each) => {
                 each.classList.remove('li_current');
             });
@@ -35,7 +35,7 @@ window.addEventListener('load', function () {
                 el2.classList.remove('work_current');
             });
             label.classList.add('work_current');
-            // check whether the data-type of the nav and the element are the same, if same, show, otherwise hide
+            // check whether the data-type of the nav and the element are the same
             portfolioWorks.forEach((el3) => {
                 if (label.getAttribute('data-type') === el3.getAttribute('data-type')) {
                     el3.style.display = 'block';
@@ -49,4 +49,46 @@ window.addEventListener('load', function () {
             })
         });
     });
+
+    // the video player settings
+    const player = document.querySelector('.player');
+    const video = document.querySelector('#player_video');
+    const playerButton = document.querySelector('.player_button');
+    const progress = document.querySelector('.progress');
+    const progressFilled = document.querySelector('.progress_filled');
+    let mouseDown = false;
+
+    function togglePlay() {
+        const method = video.paused ? 'play' : 'pause';
+        video[method]();
+    }
+
+    function toggleBtn() {
+        playerButton.style.backgroundImage = video.paused ? "url(\'./Resources/img/pause.svg\')":"url(\'./Resources/img/play.svg\')";
+    }
+
+    function handleProgress(){
+        const percent = (video.currentTime/video.duration)*100;
+        progressFilled.style.width = `${percent}%`;
+        if(video.currentTime === video.duration){
+            video.currentTime = 0;
+            playerButton.style.backgroundImage = "url(\'./Resources/img/play.svg\')";
+        }
+    }
+
+    function scrub(e){
+        video.currentTime = (e.offsetX/progress.offsetWidth)*video.duration;
+    }
+
+    player.addEventListener('click', () => {
+        toggleBtn();
+        togglePlay();
+    });
+
+    video.addEventListener('timeupdate', handleProgress);
+    progress.addEventListener('click', scrub);
+    progress.addEventListener('mousedown', ()=>mouseDown = true);
+    progress.addEventListener('mouseup', ()=>mouseDown = false);
+    progress.addEventListener('mousemove', (e)=>mouseDown && scrub(e));
+
 });

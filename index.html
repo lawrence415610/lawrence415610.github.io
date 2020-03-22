@@ -13,17 +13,16 @@
 
 </head>
 <body>
-<!--the design is inspired by https://themeforest.net/item/the-book-personal-vcard-template/16692133 -->
-<!--TODO:Write a preloader using es6-->
+
 <!-- Preloader -->
-<script type="text/html">
-    <div class="preloader">
-        <div class="loading">
-            <div class="bounceBall"></div>
-            <div class="text">NOW LOADING</div>
-        </div>
+
+<div id="preloader">
+    <div class="loading">
+        <div class="bounceBall"></div>
+        <div class="text">NOW LOADING</div>
     </div>
-</script>
+</div>
+
 <!-- End preloader-->
 
 <!--wrapper-->
@@ -65,8 +64,29 @@
                     <article>
                         <div class="decoration"></div>
                         <h5>about me</h5>
-                        <h6>I'm Yelin. I am a happy programmer who loves to program and enjoys being clever about it.</h6>
+                        <p>I'm Yelin. I am a happy programmer who loves to program and enjoys being clever about it.</p>
+                        <a href="./Resources/Yelin%20_Liu_Resume.DOCX" id="downloadCV" type="button" class="btn btn-dark" style="color: white; font-weight: normal;">Download CV</a>
                     </article>
+                    <article>
+                        <div class="player">
+                            <video id="player_video" class="player_video" src="./Resources/interview.mp4"></video>
+                            <div class="player_controls">
+                                <div class="player_button"></div>
+                                <div class="progress">
+                                    <div class="progress_filled"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+                <!--End about me-->
+                <!--resume-->
+                <section id="resume">
+                    <div class="title">
+                        <h1>Resume</h1>
+                        <h2>CURRICULUM VITA</h2>
+                    </div>
+                    <!--personal-info-->
                     <article>
                         <div class="decoration"></div>
                         <h5>personal info</h5>
@@ -93,18 +113,7 @@
                             </div>
                         </div>
                     </article>
-                </section>
-                <!--End about me-->
-                <!--resume-->
-                <section id="resume">
-                    <div class="title">
-                        <h1>Resume</h1>
-                        <h2>CURRICULUM VITA</h2>
-                        <button id="downloadCV" type="button" class="btn btn-dark">Download CV</button>
-                    </div>
-                    <!--downloads-->
-
-                    <!--End downloads-->
+                    <!--end-personal-info-->
                     <!--experience-->
                     <article>
                         <div class="decoration"></div>
@@ -119,8 +128,7 @@
                                 <ul class="article-right">
                                     <li>Presented multimedia contents to showcase academic achievements.
                                     </li>
-                                    <li>Created site layout and user interface using HTML5 and CSS3 practices</li>
-                                    <li>Conducted research activities, including writing Python scripts for machine
+                                    <li>Conducted research activities, including writing Python testing scripts for machine
                                         learning applications and making Powerpoint presentation.
                                     </li>
                                 </ul>
@@ -226,7 +234,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <ul class="article-left">
-                                    <li>2018<br/><strong>Monash University Prato Travelling Studios</strong></li>
+                                    <li>2018<br/><strong>Monash Hackthon First Prize</strong></li>
                                 </ul>
                             </div>
                             <div class="col-md-6">
@@ -380,7 +388,7 @@
     </main>
 </div>
 <!--End wrapper-->
-
+<script src="js/jquery-1.11.3.min.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
