@@ -6,47 +6,63 @@
     <meta name="description" content="yelin's personal resume">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="./Resources/img/favicon.ico">
+    <link rel="icon" href="Resources/favicon.ico">
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/base.css">
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/skills.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
 </head>
 <body>
 
 <!-- Preloader -->
-
 <div id="preloader">
     <div class="loading">
-        <div class="bounceBall"></div>
-        <div class="text">NOW LOADING</div>
+        <div class="loading__bounceBall"></div>
+        <div class="loading__text">NOW LOADING</div>
     </div>
 </div>
-
 <!-- End preloader-->
 
 <!--wrapper-->
 <div id="wrapper">
-    <main class="container">
+    <main class="container main-container">
         <div class="row">
             <!--left side-->
-            <div class="col-md-2 left">
+            <div class="col-md-2 container__left">
                 <header id="header">
                     <div class="profile">
-                        <div>
-                            <img src="./Resources/img/me.jpg" alt="bio">
+                        <div class="profile__bio">
+                            <img src="Resources/me.jpg" alt="bio">
                         </div>
-                        <div class="name-profile">
-                            <h5>YELIN LIU</h5>
+                        <div class="profile__name">
+                            <h3>YELIN LIU</h3>
                         </div>
                     </div>
                     <nav id="nav">
-                        <ul>
-                            <li class="li_current"><a name="#about"><i class="icon-user-tie"></i><h5>About me</h5><span>WHO AM I</span></a>
+                        <ul class="nav__ul">
+                            <li class="nav__li nav__li-clicked">
+                                <a name="#about">
+                                    <i class="icon-user-tie"></i>
+                                    <h3>About me</h3>
+                                    <span>WHO AM I</span>
+                                </a>
                             </li>
-                            <li><a name="#resume"><i class="icon-briefcase"></i><h5>Resume</h5>
-                                <span>CURRICULUM VITA</span></a></li>
-                            <li><a name="#portfolio"><i class="icon-camera"></i><h5>Portfolio</h5><span>MY WORKS</span></a>
+                            <li class="nav__li">
+                                <a name="#resume">
+                                    <i class="icon-briefcase"></i>
+                                    <h3>Resume</h3>
+                                    <span>CURRICULUM VITA</span>
+                                </a>
+                            </li>
+                            <li class="nav__li">
+                                <a name="#portfolio">
+                                    <i class="icon-camera"></i>
+                                    <h3>Portfolio</h3>
+                                    <span>MY WORKS</span>
+                                </a>
                             </li>
                         </ul>
                     </nav>
@@ -54,30 +70,51 @@
             </div>
             <!--End left side-->
             <!--right side-->
-            <div class="col-md-9 right">
+            <div class="col-md-9 container__right">
                 <!--about me-->
-                <section id="about" class="show_section">
+                <section id="about" class="section-display">
                     <div class="title">
                         <h1>Yelin Liu</h1>
                         <h2>Web Developer / UX Designer</h2>
                     </div>
-                    <article>
-                        <div class="decoration"></div>
-                        <h5>about me</h5>
-                        <p>I'm Yelin. I am a happy programmer who loves to program and enjoys being clever about it.</p>
-                        <a href="./Resources/Yelin%20_Liu_Resume.DOCX" id="downloadCV" type="button" class="btn btn-dark" style="color: white; font-weight: normal;">Download CV</a>
-                    </article>
-                    <article>
-                        <div class="player">
-                            <video id="player_video" class="player_video" src="./Resources/interview.mp4"></video>
-                            <div class="player_controls">
-                                <div class="player_button"></div>
-                                <div class="progress">
-                                    <div class="progress_filled"></div>
+                    <div class="container panel-container">
+                        <div class="row">
+                            <div class="col panel greeting d-flex justify-content-between flex-column">
+                                <div class="greeting__title">
+                                    <h3>Hi, I'm <span id="motion-text"></span></h3>
+                                </div>
+                                <div class="greeting__text">
+                                    <p>I'm a happy programmer who loves to code and be clever about it.</p>
+                                </div>
+                            </div>
+                            <div class="col panel info">
+                                <div class="info__contact">
+                                    Contact Me
+                                </div>
+                                <div class="info__item"><i class="icon-phone"></i> phone: 0468-600-207</div>
+                                <div class="info__item"><i class="icon-envelop"></i> E-mail: yl908@uowmail.edu.au</div>
+                                <div class="info__item"><i class="icon-location"></i> Address: 34 Foley St. Gwynneville</div>
+                                <div class="info__item"><i class="icon-linkedin"></i> Linkin: <a
+                                        href="https://www.linkedin.com/in/yelin-liu-845328133/">https://www.linkedin.com</a>
+                                </div>
+                            </div>
+                            <a class="col-1 panel d-flex flex-column justify-content-around downloadCV" id="downloadCV"
+                               type="button" href="./Resources/Yelin%20_Liu_Resume.DOCX">
+                                <h3 class="downloadCV__text"><i class="icon-download2"></i><br/>Get<br/>CV</h3>
+                            </a>
+                        </div>
+                        <div class="row">
+                            <div class="panel player">
+                                <video id="player__video" class="player__video" src="Resources/interview.mp4"></video>
+                                <div class="player__controls">
+                                    <div class="player__button"></div>
+                                    <div class="progress">
+                                        <div class="progress__filled"></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </article>
+                    </div>
                 </section>
                 <!--End about me-->
                 <!--resume-->
@@ -86,186 +123,285 @@
                         <h1>Resume</h1>
                         <h2>CURRICULUM VITA</h2>
                     </div>
-                    <!--personal-info-->
-                    <article>
-                        <div class="decoration"></div>
-                        <h5>personal info</h5>
+                    <div class="container panel-container">
                         <div class="row">
-                            <div class="col-md-6">
-                                <ul class="article-left personal-info">
-                                    <li>Name</li>
-                                    <li>Language</li>
-                                    <li>Address</li>
-                                    <li>E-mail</li>
-                                    <li>Phone</li>
-                                    <li>Linkin</li>
-                                </ul>
+                            <div class="col-2">
+                                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist"
+                                     aria-orientation="vertical">
+                                    <a class="nav-link panel caption active" id="v-pills-skills-tab" data-toggle="pill"
+                                       href="#v-pills-skills" role="tab" aria-controls="v-pills-skills"
+                                       aria-selected="true"><h4><i class="icon-wrench"></i><br>skills</h4></a>
+                                    <a class="nav-link panel caption" id="v-pills-experience-tab" data-toggle="pill"
+                                       href="#v-pills-experience" role="tab" aria-controls="v-pills-experience"
+                                       aria-selected="false"><h4><i class="icon-library"></i><br>experience <br> & <br> education</h4></a>
+                                    <a class="nav-link panel caption" id="v-pills-awards-tab" data-toggle="pill"
+                                       href="#v-pills-awards" role="tab" aria-controls="v-pills-awards"
+                                       aria-selected="false"><h4><i class="icon-trophy"></i><br>awards <br> & <br> publications</h4></a>
+                                </div>
                             </div>
-                            <div class="col-md-6">
-                                <ul class="article-right personal-info">
-                                    <li>Yelin Liu</li>
-                                    <li>Chinese, English, Japanese</li>
-                                    <li>Wollongong, NSW</li>
-                                    <li>lawrence415610@gmail.com</li>
-                                    <li>+61 468-600-207</li>
-                                    <li><a href="https://www.linkedin.com/in/yelin-liu-845328133/">Linkin Page</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                    <!--end-personal-info-->
-                    <!--experience-->
-                    <article>
-                        <div class="decoration"></div>
-                        <h5>EXPERIENCE</h5>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="article-left">
-                                    <li>Apr. 2019 - Apr. 2020<br/><strong>Research Assistant</strong> - UOW</li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="article-right">
-                                    <li>Presented multimedia contents to showcase academic achievements.
-                                    </li>
-                                    <li>Conducted research activities, including writing Python testing scripts for machine
-                                        learning applications and making Powerpoint presentation.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="article-left">
-                                    <li>
-                                        Oct. 2011 - Apr. 2016<br/><strong>Architect</strong> - ShenZhenZhongTai Design
-                                        Institution
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="article-right">
-                                    <li>Delivered Architecture designs, handled 3 major architecture projects</li>
-                                    <li>Communicated with clients from different backgrounds</li>
-                                    <li>Used strategic thinking skills to help clients make decisions</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                    <!--End experience-->
-                    <!--education-->
-                    <article>
-                        <div class="decoration"></div>
-                        <h5>EDUCATION</h5>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="article-left">
-                                    <li>Mar. 2019 - Dec. 2020<br/><strong>Master of Philosophy in Computer
-                                        Science</strong></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="article-right">
-                                    <li><strong>University of Wollongong</strong> - Wollongong, NSW
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="article-left">
-                                    <li>Mar. 2017 - Dec. 2018<br/><strong>Master of Interaction Design</strong></li>
+                            <div class="col-10">
+                                <div class="tab-content" id="v-pills-tabContent">
+                                    <!--skills-->
+                                    <div class="tab-pane fade show active" id="v-pills-skills" role="tabpanel"
+                                         aria-labelledby="v-pills-skills-tab">
+                                        <div class="skills">
+                                            <ul class="lines">
+                                                <li class="line l--25"><span class="line__label">The basics</span></li>
+                                                <li class="line l--50"><span class="line__label">Advanced</span></li>
+                                                <li class="line l--75"><span class="line__label">Seasoned</span></li>
+                                                <li class="line l--100"><span class="line__label">Expert</span></li>
+                                            </ul>
+                                            <div class="charts">
+                                                <div class="chart chart--dev">
+                                                    <span class="chart__title">Development</span>
+                                                    <ul class="chart--horiz">
+                                                        <li class="chart__bar" style="width: 98%;"><span
+                                                                class="chart__label">HTML5</span></li>
+                                                        <li class="chart__bar" style="width: 70%;"><span
+                                                                class="chart__label">CSS3 & SCSS</span></li>
+                                                        <li class="chart__bar" style="width: 70%;"><span
+                                                                class="chart__label">JavaScript</span></li>
+                                                        <li class="chart__bar" style="width: 70%;"><span
+                                                                class="chart__label">ReactJS</span></li>
+                                                        <li class="chart__bar" style="width: 80%;"><span
+                                                                class="chart__label">jQuery</span></li>
+                                                        <li class="chart__bar" style="width: 55%;"><span
+                                                                class="chart__label">NodeJS</span></li>
+                                                        <li class="chart__bar" style="width: 50%;"><span
+                                                                class="chart__label">Grunt / Gulp / Webpack</span></li>
+                                                    </ul>
+                                                </div>
 
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="article-right">
-                                    <li><strong>Monash University</strong> - Caulfield, VIC</li>
-                                </ul>
+                                                <div class="chart chart--prod">
+                                                    <span class="chart__title">Productivity</span>
+                                                    <ul class="chart--horiz">
+                                                        <li class="chart__bar" style="width: 75%;"><span
+                                                                class="chart__label">Git + Github</span></li>
+                                                        <li class="chart__bar" style="width: 80%;"><span
+                                                                class="chart__label">Microsoft Office</span></li>
+                                                    </ul>
+                                                </div>
+
+                                                <div class="chart chart--design">
+                                                    <span class="chart__title">Design</span>
+                                                    <ul class="chart--horiz">
+                                                        <li class="chart__bar" style="width: 80%;"><span
+                                                                class="chart__label">Photoshop</span></li>
+                                                        <li class="chart__bar" style="width: 35%;"><span
+                                                                class="chart__label">Illustrator</span></li>
+                                                        <li class="chart__bar" style="width: 60%;"><span
+                                                                class="chart__label">User Experience</span></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End skills-->
+                                    <!--experience & education-->
+                                    <div class="tab-pane fade" id="v-pills-experience" role="tabpanel"
+                                         aria-labelledby="v-pills-experience-tab">
+                                        <div class="row mb-5">
+                                            <div class="col education__title">
+                                                <h3>Education</h3>
+                                                <i class="icon-library"></i>
+                                            </div>
+                                            <div class="col experience__title">
+                                                <h3>Experience</h3>
+                                                <i class="icon-wrench"></i>
+                                            </div>
+                                        </div>
+                                        <div class="experience">
+                                            <ul>
+                                                <li class="single-experience">
+                                                    <div class="single-experience__main">
+                                                        <h4 class="single-experience__job">Research Assistant</h4>
+                                                        <ul class="single-experience__desc">
+                                                            <li>-- University of Wollongong</li>
+                                                            <li>Presented multimedia contents to showcase academic
+                                                                achievements.
+                                                            </li>
+                                                            <li>Conducted research activities, including writing Python
+                                                                testing scripts and making Powerpoint presentation.
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="single-experience__time">
+                                                        <span>Apr. 2019 <br>- Apr. 2020</span>
+                                                    </span>
+                                                </li>
+                                                <li class="single-experience education">
+                                                    <div class="single-experience__main education__main">
+                                                        <h4 class="single-experience__job">Master of Computer Science
+                                                            (honor)</h4>
+                                                        <ul class="single-experience__desc">
+                                                            <li>University of Wollongong</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="single-experience__time">
+                                                        <span>Mar. 2019</span>
+                                                    </span>
+                                                </li>
+                                                <li class="single-experience">
+                                                    <div class="single-experience__main">
+                                                        <h4 class="single-experience__job">Front-end Developer
+                                                            Intern</h4>
+                                                        <ul class="single-experience__desc">
+                                                            <li>
+                                                                -- LOOOK Studio
+                                                            </li>
+                                                            <li>Created site layout and user interface using HTML5 and
+                                                                CSS3 practices
+                                                            </li>
+                                                            <li>
+                                                                Analyzed requirements and designed, developed and
+                                                                implemented software applications
+                                                            </li>
+                                                            <li>
+                                                                Communicate with clients
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="single-experience__time">
+                                                        <span>Apr. 2018 <br>- Dec. 2018</span>
+                                                    </span>
+                                                </li>
+                                                <li class="single-experience education">
+                                                    <div class="single-experience__main education__main">
+                                                        <h4 class="single-experience__job">Master of Interaction
+                                                            Design</h4>
+                                                        <ul class="single-experience__desc">
+                                                            <li>Monash University</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="single-experience__time">
+                                                        <span>Mar. 2017 <br>- Dec. 2018</span>
+                                                    </span>
+                                                </li>
+                                                <li class="single-experience">
+                                                    <div class="single-experience__main">
+                                                        <h4 class="single-experience__job">Architect</h4>
+                                                        <ul class="single-experience__desc">
+                                                            <li>
+                                                                -- ShenZhenZhongTai Design Institution
+                                                            </li>
+                                                            <li>Delivered Architecture designs, handled 3 major
+                                                                architecture
+                                                                projects
+                                                            </li>
+                                                            <li>Communicated with clients of different backgrounds
+                                                            </li>
+                                                            <li>Used strategic thinking skills to help clients make
+                                                                decisions
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="single-experience__time">
+                                                        <span>Oct. 2011 <br>- Apr. 2016</span>
+                                                    </span>
+                                                </li>
+                                                <li class="single-experience education">
+                                                    <div class="single-experience__main education__main">
+                                                        <h4 class="single-experience__job">Bachelor of Architecture</h4>
+                                                        <ul class="single-experience__desc">
+                                                            <li>Nanchang University</li>
+                                                        </ul>
+                                                    </div>
+                                                    <span class="single-experience__time">
+                                                        <span>Sep. 2006 <br>- Sep. 2011</span>
+                                                    </span>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!--End experience & education-->
+                                    <!--awards & publication-->
+                                    <div class="tab-pane fade" id="v-pills-awards" role="tabpanel"
+                                         aria-labelledby="v-pills-awards-tab">
+                                        <div class="awardCards container">
+                                            <div class="row">
+                                                <div class="card awardCards__card">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-2 awardCards__icon">
+                                                            <i class="icon-library"></i>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title text-left">Scholarship</h5>
+                                                                <p class="card-text text-left">2019 - 2020 International
+                                                                    Postgraduate Tuition Award</p>
+                                                                <p class="card-text text-left"><small
+                                                                        class="text-muted">University of
+                                                                    Wollongong</small></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+
+                                                <div class="card awardCards__card">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-2 awardCards__icon">
+                                                            <i class="icon-library"></i>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title text-left">Scholarship</h5>
+                                                                <p class="card-text text-left">Engineering and
+                                                                    Information Science Faculty Scholarship</p>
+                                                                <p class="card-text text-left"><small
+                                                                        class="text-muted">University of
+                                                                    Wollongong</small></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="row">
+                                                <div class="card awardCards__card">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-2 awardCards__icon">
+                                                            <i class="icon-trophy"></i>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title text-left">Prize</h5>
+                                                                <p class="card-text text-left">2018 Monash Hackthon
+                                                                    First Prize</p>
+                                                                <p class="card-text text-left"><small
+                                                                        class="text-muted">Monash University</small></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="card awardCards__card">
+                                                    <div class="row no-gutters">
+                                                        <div class="col-md-2 awardCards__icon">
+                                                            <i class="icon-book"></i>
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <div class="card-body">
+                                                                <h5 class="card-title text-left">Publication</h5>
+                                                                <p class="card-text text-left">A Testing Tool for
+                                                                    Machine Learning Applications</p>
+                                                                <p class="card-text text-left"><small
+                                                                        class="text-muted">IEEE - ACM - Conference
+                                                                    paper</small></p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!--End awards & publication-->
+                                </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="article-left">
-                                    <li>Sep. 2006 - sep. 2011<br/><strong>Bachelor of Architecture</strong></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="article-right">
-                                    <li><strong>Nanchang University</strong> - Jiangxi, China</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                    <!--End education-->
-                    <!--awards-->
-                    <article>
-                        <div class="decoration"></div>
-                        <h5>AWARDS</h5>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="article-left">
-                                    <li>2019 - 2020<br/><strong> International Postgraduate Tuition Award</strong></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="article-right">
-                                    <li>
-                                        University of Wollongong
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="article-left">
-                                    <li>2019 - 2020<br/><strong> Engineering and Information Science Faculty
-                                        Scholarship</strong></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="article-right">
-                                    <li>
-                                        University of Wollongong
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="article-left">
-                                    <li>2018<br/><strong>Monash Hackthon First Prize</strong></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="article-right">
-                                    <li>
-                                        Monash University
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                    <!--End awards-->
-                    <!--publications-->
-                    <article>
-                        <div class="decoration"></div>
-                        <h5>PUBLICATIONS</h5>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <ul class="article-left">
-                                    <li>Apr. 2020<br/><strong>IEEE - ACM - Conference paper</strong></li>
-                                </ul>
-                            </div>
-                            <div class="col-md-6">
-                                <ul class="article-right">
-                                    <li>A Testing Tool for Machine Learning Applications
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                    <!--End publications-->
+                    </div>
                 </section>
                 <!--End resume-->
                 <!--portfolio-->
@@ -274,109 +410,69 @@
                         <h1>Portfolio</h1>
                         <h2>MY WORKS</h2>
                     </div>
-                    <!--skills-->
-                    <article>
-                        <div class="decoration"></div>
-                        <h5>SKILLS</h5>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12 col-sm-12">
-                                <ul class="article-left skill-desc">
-                                    <li>React.js / Jquery</li>
-                                    <li>Node.js</li>
-                                    <li>Photoshop / Illustrator / Axure</li>
-                                </ul>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul class="article-right skill-desc">
-                                    <li>adept the frameworks to accomplish front-end jobs</li>
-                                    <li>understand the backend</li>
-                                    <li>graphic design and UX design</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </article>
-                    <!--End skills-->
                     <!--works-->
                     <article id="works">
                         <nav>
                             <ul>
                                 <li><a data-type="all" class="work_current">All</a></li>
-                                <li><a data-type="project">Project</a></li>
-                                <li><a data-type="design">Design</a></li>
-                                <li><a data-type="fun">Fun</a></li>
+                                <li><a data-type="Development">Development</a></li>
+                                <li><a data-type="Design">Design</a></li>
+                                <li><a data-type="Fun">Fun</a></li>
                             </ul>
                         </nav>
                         <div class="row">
-                            <div class="col-lg-4 col-md-6 work_wrapper" data-type="project">
-                                <a>
+                            <div class="col-lg-4 col-md-6 work__wrapper" data-type="Design">
+                                <a href="#">
                                     <div class="desc">
                                         <div class="project-desc">
-                                            <h5>project Name</h5>
-                                            <span>Project</span>
-                                        </div>
-                                        <img src="./Resources/img/portfolio/1.jpg" alt="">
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="col-lg-4 col-md-6 work_wrapper" data-type="design">
-                                <a>
-                                    <div class="desc">
-                                        <div class="project-desc">
-                                            <h5>project Name</h5>
+                                            <h5>arAcropolis</h5>
                                             <span>Design</span>
+                                            <span>UX design of augmented reality app introducing Acropolis of Athens</span>
                                         </div>
-                                        <img src="./Resources/img/portfolio/1.jpg" alt="">
+                                        <img src="./Resources/uploads/ar.png" alt="img">
                                     </div>
                                 </a>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 work_wrapper" data-type="project">
-                                <a data-type="project">
+                            <div class="col-lg-4 col-md-6 work__wrapper" data-type="Design">
+                                <a href="#">
                                     <div class="desc">
                                         <div class="project-desc">
-                                            <h5>Project Name</h5>
-                                            <span>Project</span>
-                                        </div>
-                                        <img src="./Resources/img/portfolio/1.jpg" alt="">
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 work_wrapper" data-type="fun">
-                                <a data-type="fun">
-                                    <div class="desc">
-                                        <div class="project-desc">
-                                            <h5>project Name</h5>
-                                            <span>Fun</span>
-                                        </div>
-                                        <img src="./Resources/img/portfolio/1.jpg" alt="">
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="col-lg-4 col-md-6 work_wrapper" data-type="design">
-                                <a data-type="design">
-                                    <div class="desc">
-                                        <div class="project-desc">
-                                            <h5>project Name</h5>
+                                            <h5>WeDone</h5>
                                             <span>Design</span>
+                                            <span>UX design of to-do-list program as a WeChat plugin</span>
                                         </div>
-                                        <img src="./Resources/img/portfolio/1.jpg" alt="">
+                                        <img src="./Resources/uploads/wedone.jpg" alt="img">
                                     </div>
                                 </a>
                             </div>
 
-                            <div class="col-lg-4 col-md-6 work_wrapper" data-type="project">
-                                <a data-type="project">
+                            <div class="col-lg-4 col-md-6 work__wrapper" data-type="Design">
+                                <a href="#">
                                     <div class="desc">
                                         <div class="project-desc">
-                                            <h5>project Name</h5>
-                                            <span>Project</span>
+                                            <h5>Masquerade</h5>
+                                            <span>Design</span>
+                                            <span>UX design of virtual reality app of online fashion shopping</span>
                                         </div>
-                                        <img src="./Resources/img/portfolio/1.jpg" alt="">
+                                        <img src="./Resources/uploads/masqurade.png" alt="img">
                                     </div>
                                 </a>
                             </div>
+
+                            <div class="col-lg-4 col-md-6 work__wrapper" data-type="Design">
+                                <a href="#">
+                                    <div class="desc">
+                                        <div class="project-desc">
+                                            <h5>Lunchtime Spitball</h5>
+                                            <span>Design</span>
+                                            <span>UX design of a gamification app for productivity</span>
+                                        </div>
+                                        <img src="./Resources/uploads/lunch.png" alt="img">
+                                    </div>
+                                </a>
+                            </div>
+
                         </div>
                     </article>
                     <!--End works-->
@@ -388,7 +484,14 @@
     </main>
 </div>
 <!--End wrapper-->
-<script src="js/jquery-1.11.3.min.js"></script>
-<script src="js/main.js"></script>
+<script src="./js/jquery-1.11.3.min.js"></script>
+<script src="./js/bootstrap.js"></script>
+<script src="./js/index.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+
+<!--TODO: 1. 把网页上可以添加的动效写完 -->
+<!--TODO: 1. 把图标重新整理 -->
+<!--TODO: 2. 整理代码，发布，询问关于加载器加载完所有文件之后再消失的问题 -->
+<!--TODO: 3. 研究firebase作为后台，与前端的模板进行连接的问题 -->
 </body>
 </html>

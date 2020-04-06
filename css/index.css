@@ -10,7 +10,7 @@
  */
 
 /* Preloader */
-#preloader{
+#preloader {
     background: var(--background);
     bottom: 0;
     height: 100%;
@@ -20,32 +20,37 @@
     top: 0;
     width: 100%;
     z-index: 9999;
+    transition: all 0.3s linear;
 }
 
-#preloader .loading {
+.preloader-disappear{
+    display: none;
+}
+
+.loading {
     height: 100%;
     left: 0;
     position: absolute;
     top: 50%;
     width: 100%;
-    opacity:.9;
-    text-align:center;
+    opacity: .9;
+    text-align: center;
 }
 
-#preloader .text {
-    color: var(--primary);
-    display: inline-block;
-    margin-left: 5px;
-}
-
-#preloader .bounceBall {
+.loading__bounceBall {
     position: relative;
     display: inline-block;
     height: 37px;
     width: 15px;
 }
 
-#preloader .bounceBall:before {
+.loading__text {
+    color: var(--primary);
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.loading__bounceBall:before {
     position: absolute;
     content: '';
     display: block;
@@ -58,6 +63,7 @@
     animation: bounce 300ms alternate infinite ease;
     z-index: 9999;
 }
+
 @keyframes bounce {
     0% {
         top: 30px;
@@ -76,54 +82,56 @@
 
 /* End preloader */
 /*layout*/
-main.container {
+.main-container {
     margin: 10rem auto;
     padding: 0;
     width: 60%;
     background-color: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 5px 15px -5px rgba(0, 0, 0, .5);
 }
 
 @media screen and (max-width: 1199px) {
-    main.container {
+    .main-container {
         margin: 0 auto;
         width: 100%;
     }
 }
 
-main.container .left, main.container .right {
+.container__left, .container__right {
     padding: 0;
     margin: 0;
 }
 
-main.container .right {
+.container__right {
     margin-left: 5rem;
 }
 
 @media screen and (max-width: 1199px) {
-    main.container .right {
+    .container__right {
         margin-left: 0;
     }
 }
 
-
 /*End layout*/
 /* navigation*/
-#header .profile > div {
+.profile__bio {
     margin: 0;
     padding: 0;
     background-color: var(--strong);
 }
 
-#header .profile > div > img {
+.profile__bio > img {
     width: 100%;
 }
 
-#header .profile .name-profile {
+.profile__name {
     text-align: center;
     background-color: var(--strong);
 }
 
-#header .profile .name-profile h5 {
+.profile__name > h3 {
     color: white;
     font-size: 1rem;
     margin: 0;
@@ -131,19 +139,19 @@ main.container .right {
 }
 
 @media screen and (max-width: 1199px) {
-    #header .profile .name-profile h5 {
-        font-size: 2.5rem;
+    .profile__name > h3 {
+        font-size: 2rem;
     }
 }
 
-#nav > ul {
+.nav__ul {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-#nav > ul > li {
+.nav__li {
     width: 100%;
     height: 20rem;
     display: flex;
@@ -151,41 +159,27 @@ main.container .right {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
-#nav > ul > li i {
+.nav__li i {
     font-size: 3rem;
     display: block;
     margin-bottom: 0.5rem;
     color: var(--strong);
 }
 
-#nav > ul > li span {
+.nav__li span {
     font-size: 0.7rem;
     font-weight: lighter;
     color: var(--main);
 }
 
-
-#nav > ul > li:hover {
-    background-color: var(--strong);
-}
-
-#nav > ul > li:hover i, #nav > ul > li:hover span, #nav > ul > li:hover h5 {
-    color: white;
-}
-
-#nav .li_current, #nav .li_current i, #nav .li_current h5, #nav .li_current span {
-    color: white;
-    background-color: var(--strong);
-}
-
-#nav .li_current {
+.nav__li-clicked {
     position: relative;
 }
 
-#nav .li_current:before {
+.nav__li-clicked:before {
     content: "";
     position: absolute;
     background-color: transparent;
@@ -198,27 +192,46 @@ main.container .right {
     right: -3rem;
 }
 
+.nav__li:hover {
+    background-color: var(--strong);
+}
+
+.nav__li:hover i,
+.nav__li:hover span,
+.nav__li:hover h3 {
+    color: white;
+}
+
+.nav__li-clicked,
+.nav__li-clicked i,
+.nav__li-clicked h3,
+.nav__li-clicked span {
+    color: white;
+    background-color: var(--strong);
+}
+
 @media screen and (max-width: 1199px) {
-    #nav > ul {
+    .nav__ul {
         display: flex;
         flex-direction: row;
     }
 
-    #nav > ul > li {
+    .nav__li {
         height: 10rem;
     }
 
-    #nav .li_current:before {
+    .nav__li-clicked:before {
         display: none;
     }
 }
 
 /* End navigation*/
+
 /* video player */
 .player {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 @media screen and (max-width: 1199px) {
@@ -227,19 +240,19 @@ main.container .right {
     }
 }
 
-.player_video {
+.player__video {
     width: 100%;
 }
 
-.player_button {
+.player__button {
     display: none;
 }
 
-.player_controls {
+.player__controls {
     position: absolute;
     top: 0;
     width: 100%;
-    height:100%;
+    height: 100%;
     transition: all .3s;
     background: rgba(0, 0, 0, 0);
 }
@@ -248,19 +261,19 @@ main.container .right {
     height: 1.5rem;
 }
 
-.player:hover .player_controls {
+.player:hover .player__controls {
     background: rgba(0, 0, 0, 0.4);
 }
 
-.player:hover .player_button{
+.player:hover .player__button {
     display: block;
-    background: url('../Resources/img/play.svg') no-repeat center;
+    background: url('../Resources/play.svg') no-repeat center;
     background-size: contain;
     width: 100px;
     height: 100px;
     position: absolute;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translateX(-50px) translateY(-50px);
 }
 
@@ -269,23 +282,19 @@ main.container .right {
     height: .5rem;
     width: 100%;
     transition: height 0.3s;
-    bottom:0;
+    bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     cursor: ew-resize;
 }
 
-.progress_filled {
+.progress__filled {
     width: 50%;
     background: var(--primary);
 }
-/* End video player */
-/* section resume */
-section {
-    display: none;
-    transition: all 0.2s ease;
-}
 
-.show_section {
+/* End video player */
+/* section about me */
+.section-display {
     display: block;
 }
 
@@ -294,76 +303,266 @@ section {
     text-align: center;
 }
 
-
-#downloadCV {
-    margin-top: 2rem;
-    border: .1rem solid var(--strong);
+.panel {
+    border-radius: 1rem !important;
+    margin: 1rem;
+    transition: all 0.3s ease;
 }
 
-article {
-    margin: 9rem auto;
+.panel:hover {
+    box-shadow: 0 0.5rem 1.5rem -0.5rem rgba(0, 0, 0, .5);
+}
+
+.greeting {
+    background-color: var(--background);
+    text-align: left;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.greeting__text {
+    font-size: 1.3rem;
+}
+
+.greeting__title h3{
+    text-align: left;
     font-size: 1.5rem;
 }
 
-article .decoration {
+.downloadCV {
+    background-color: var(--strong);
+    color: white;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+}
+
+.downloadCV__text {
+    color: white;
+}
+
+.info {
     background-color: var(--primary);
-    width: 3rem;
-    height: 0.5rem;
-    margin: 1rem auto;
-}
-
-article h5 {
-    margin-bottom: 3rem;
-}
-
-article li {
-    padding: 0.5rem;
-    margin-bottom: 0.2rem;
-}
-
-article .row {
-    margin-bottom: 3rem;
-}
-
-.article-left {
-    float: right;
-    text-align: right;
-    color: var(--strong);
-}
-
-.article-right {
-    float: left;
     text-align: left;
-    color: var(--main);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    font-size: 1.3rem;
 }
+
+.info__contact {
+    text-align: center;
+    color: white;
+    font-size: 3rem;
+    transition: all 0.3s ease-out;
+}
+
+.info__item {
+    display: none;
+}
+
+.info:hover {
+    background-color: var(--background);
+}
+
+.info:hover .info__contact {
+    display: none;
+}
+
+.info:hover .info__item {
+    display: block;
+}
+
+/* end section about me */
+/* section resume-skills */
+.caption {
+    background-color: var(--background);
+    height: 8rem;
+    width: 8rem;
+    margin-right: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.caption h4 {
+    font-size: 1rem;
+    font-weight: bolder;
+}
+
+.caption i{
+    font-size: 2rem;
+}
+
+.skill-progress {
+    margin: 1rem;
+}
+
+.skill-title {
+    margin: 2rem;
+}
+
+/*End section resume-skills*/
+
+/* section education & experience*/
+.education__title {
+    color: var(--primary);
+    font-size: 2rem;
+}
+
+.experience__title {
+    color: var(--secondary);
+    font-size: 2rem;
+}
+
+.experience {
+    position: relative;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+.single-experience {
+    list-style-type: none;
+    position: relative;
+    width: 2px;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: white;
+    border-left: 3px solid var(--secondary);
+}
+
+.single-experience::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-55%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: inherit;
+    border: 2px solid var(--secondary);
+}
+
+.education::after {
+    border: 2px solid var(--primary);
+    background-color: var(--primary);
+}
+
+.single-experience:nth-child(odd) div {
+    left: 45px;
+}
+
+.single-experience:nth-child(odd) div::before {
+    left: -15px;
+    border-width: 16px 16px 16px 0;
+    border-color: transparent var(--secondary) transparent transparent;
+}
+
+.single-experience__time {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.single-experience:nth-child(odd) .single-experience__time {
+    position: absolute;
+    top: 33px;
+    left: -110px;
+    width: 90px;
+}
+
+.single-experience:nth-child(odd)::after{
+    background-color: var(--secondary);
+}
+
+.single-experience:nth-child(even) .single-experience__time {
+    position: absolute;
+    top: 33px;
+    left: 20px;
+    width: 90px;
+}
+
+.single-experience:nth-child(even) div {
+    left: -295px;
+}
+
+.education__main::before {
+    right: -15px;
+    border-width: 16px 0 16px 16px;
+    border-color: transparent transparent transparent var(--primary);
+}
+
+.single-experience__main {
+    position: relative;
+    bottom: 0;
+    width: 250px;
+    padding: 15px;
+    background: var(--secondary);
+    border-radius: 10px;
+}
+
+.education__main {
+    background-color: var(--primary);
+}
+
+.single-experience__main:before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.single-experience__job {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.single-experience__desc {
+    font-size: 1.2rem;
+    padding: .5rem;
+    color: var(--strong);
+    list-style-type: none;
+    text-align: left;
+}
+
+.single-experience__desc li {
+    padding: .5rem;
+}
+
+/* End section education & experience*/
+/* section awards & publications */
+.awardCards__card{
+    border-radius: 2rem;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    width: 75%;
+}
+.awardCards__card:hover{
+    box-shadow: 0 0.5rem 1.5rem -0.5rem rgba(0, 0, 0, .5);
+}
+
+.awardCards__icon{
+    background-color: var(--secondary);
+    color: white;
+    font-size: 4rem;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+/* End section awards & publications */
 
 @media screen and (max-width: 1199px) {
-    .article-left {
-        float: left;
-        text-align: left;
-    }
 
-    .article-right {
-        float: left;
-        text-align: left;
-    }
-
-    .article-right.personal-info {
-        float: right;
-        text-align: right;
-        position: absolute;
-        right:1.5rem;
-        bottom:0;
-    }
-
-    .article-left.skill-desc {
-        text-align: center;
-        width: 100%;
-    }
-
-    .article-right.skill-desc {
-        display: none;
-    }
 }
 
 /* End section resume */
@@ -399,15 +598,15 @@ article .row {
     content: '';
 }
 
-#works .work_wrapper {
+.work__wrapper {
     margin-top: 3rem;
 }
 
-#works .work_wrapper .desc {
+.desc {
     position: relative;
 }
 
-#works .work_wrapper .project-desc {
+.project-desc {
     position: absolute;
     width: 100%;
     display: flex;
@@ -417,24 +616,30 @@ article .row {
     transition: all 0.3s ease;
 }
 
-#works .work_wrapper .project-desc:hover {
+.project-desc:hover {
     opacity: 0.6;
     background-color: black;
     cursor: pointer;
 }
 
-#works .work_wrapper .project-desc h5, #works .work_wrapper .project-desc span {
+.project-desc h5, .project-desc span {
     color: white;
-    margin-bottom: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 1.2rem;
     opacity: 0;
     transition: all 0.3s ease;
 }
 
-#works .work_wrapper .project-desc:hover h5, #works .work_wrapper .project-desc:hover span {
+.project-desc span{
+    font-size: 1.2rem;
+}
+
+.project-desc:hover h5, .project-desc:hover span {
     opacity: 100%;
 }
 
-#works .work_wrapper img {
+.work__wrapper img {
     width: 100%;
 }
+
 /* End section portfolio */
