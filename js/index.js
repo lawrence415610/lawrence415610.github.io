@@ -112,7 +112,7 @@ window.addEventListener('load', function () {
         el.classList.add('animated', 'flipInX');
     });
     aCard.forEach(el => {
-        el.classList.add('animated', 'slideInLeft');
+        el.classList.add('animated', 'slideInRight');
     });
 });
 
