@@ -20,7 +20,7 @@
   top: 0;
   width: 100%;
   z-index: 9999;
-  transition: all 0.3s linear;
+  transition: all 0.5s linear;
 }
 
 .preloader-disappear {
@@ -60,7 +60,7 @@
   border-radius: 50%;
   background-color: var(--primary);
   transform-origin: 50%;
-  animation: bounce 300ms alternate infinite ease;
+  animation: bounce 500ms alternate infinite ease;
   z-index: 9999;
 }
 
@@ -226,7 +226,7 @@
   }
 
   .nav__resume {
-      display: none;
+    display: none;
   }
 }
 
