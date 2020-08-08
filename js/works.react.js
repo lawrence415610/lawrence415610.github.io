@@ -17,14 +17,6 @@ const cards = [
         'pic': '../Resources/uploads/cityweather.png',
         'live': 'http://yelin-weather-app.s3-website-ap-southeast-2.amazonaws.com/'
     },
-    {
-        'name': 'Ekas Interview Booking',
-        'type': 'Development',
-        'description': 'An interview booking tool',
-        'CreatedBy': 'React, Redux, Firebase',
-        'pic': '../Resources/uploads/ekas.png',
-        'live': 'live-link'
-    }
 ]
 
 const CardList = ({ cards }) =>
